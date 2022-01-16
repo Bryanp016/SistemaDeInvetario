@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Montecarlo</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <legend class="text-center header">Montecarlo</legend><br>
+    <legend class="text-left header">Subir y Colocar Varibales</legend>
+    <div class="card">
+        <form enctype="multipart/form-data" method="POST" action="{{url_for('calcularMontecarlo')}}"><br>
+            <div class="col-sm-12">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="exampleFormControlFile1">Subir el archivo en formato (excel, csv ,json )</label>
+                        <!-- <a class="btn btn-warning float-right"
+                            href="{{url_for('static', filename='file/template4.xlsx')}}" role="button">Descargar
+                            plantilla</a> -->
+                        <input name="file" type="file" class="form-control-file form-data" id="exampleFormControlFile1"
+                            required>
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                            Por favor especificar bien el nombre del campo que se encuentra en la tabla... 
+                        </small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Ingrese el nombre de la columna X</label>
+                        <input name="x" type="text" class="form-control" id="validationDefault01"
+                            required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Ingrese el nombre de la columna Y</label>
+                        <input name="y" type="text" class="form-control" id="validationDefault01"
+                            required>
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <legend class="text-center header">Método congruencial lineal</legend><br>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Número iteraciones (n)</label>
+                        <input name="numeroIteraciones" type="number" class="form-control" id="validationDefault01"
+                            required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Semilla (X0)</label>
+                        <input name="semilla" type="number" class="form-control" id="validationDefault02" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Multiplicador (a)</label>
+                        <input name="multiplicador" type="number" class="form-control" id="validationDefault01"
+                            required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Incremento (c)</label>
+                        <input name="incremento" type="number" class="form-control" id="validationDefault02" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Módulo (m)</label>
+                        <input name="modulo" type="number" class="form-control" id="validationDefault01" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Tipo de archivo</label>
+                        <br>
+                        <select name="tipoarchivo" required>
+                            <option value="">---</option>
+                            <option value="1">Excel</option> 
+                            <option value="2">csv </option> 
+                            <option value="3">json</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-danger" type="submit">Calcular</button>
+            </div>
+        </form><br>
+    </div>
+</div><br>
+{% endblock %}
